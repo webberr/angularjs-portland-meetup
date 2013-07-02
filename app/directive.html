@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="sample">
+
+  <head>
+    <title>Directive Example</title>
+    <script src="lib/angular/angular.min.js"></script>
+    <script>
+      angular.module('sample', [])
+      .directive('textbox',function(){
+        return{
+          restrict: 'E',
+           controller: function($scope, $attrs){
+             $scope.label = $attrs.label;
+             $scope.name = "Brian Garofola";
+           },
+          template: '<div class="wrapper"><label>{{label}}</label>:<input type="text" ng-model="name"></input></div>'
+        }
+      })
+      
+    </script>
+  </head>
+
+  <body>
+    <textbox label="Name"></textbox>
+    <br/>
+    <label>{{name}}</label>
+  </body>
+
+</html>
